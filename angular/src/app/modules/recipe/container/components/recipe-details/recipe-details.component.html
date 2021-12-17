@@ -1,0 +1,34 @@
+<div id="recipe-detail" *ngIf="recipe">
+  <div id="header">
+    <span class="p-2">
+      <h3>{{ recipe.name }}</h3>
+    </span>
+
+    <div>
+      <a class="dropdown-item" (click)="onEditRecipe()">
+        <div class="flex-container">
+          <div class="btn-content"><span>Edit Recipe</span></div>
+        </div>
+      </a>
+      <a class="dropdown-item" (click)="onDeleteRecipe(recipe.id)">
+        <div class="flex-container">
+          <div class="btn-content"><span>Delete Recipe</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="p-2">
+      <span>Recipe Description</span> : {{ recipe.description }}
+    </div>
+    <div id="recipe-ingredients" class="flex-item p-2">
+      <h4>Ingredients</h4>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+            <span>{{ ingredient.name }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
